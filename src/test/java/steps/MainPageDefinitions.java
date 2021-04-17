@@ -3,6 +3,8 @@ package steps;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import pages.ContactUsPage;
 import pages.MainPage;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -11,6 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class MainPageDefinitions {
 
     private final MainPage mainPage;
+    private ContactUsPage contactUsPage;
 
 
     public MainPageDefinitions() {
@@ -31,6 +34,11 @@ public class MainPageDefinitions {
     public void verifyThatMainSliderIsLoaded() {
         assertTrue(mainPage.isMainSliderDisplayed());
     }
+
+
+
+
+
 
 
 }

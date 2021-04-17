@@ -6,3 +6,4 @@ Feature: Right Way Auto Sale Main page tests
   Scenario: navigate to main page and verify some elements
     Then verify that main logo is loaded and visible
     And verify that main slider is loaded
+
