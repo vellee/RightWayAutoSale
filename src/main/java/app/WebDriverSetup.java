@@ -19,4 +19,12 @@ public class WebDriverSetup {
 
         }
     }
+
+    public static WebDriver getWebDriver() {
+        return driver;
+    }
+
+    public static void closeDriver() {
+        driver.quit();
+    }
 }
