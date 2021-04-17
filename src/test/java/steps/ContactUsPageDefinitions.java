@@ -13,7 +13,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class ContactUsPageDefinitions {
 
     private final ContactUsPage contactUsPage;
-    private MainPage mainPage;
 
     public ContactUsPageDefinitions() {
         contactUsPage = new ContactUsPage();

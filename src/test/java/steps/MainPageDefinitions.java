@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class MainPageDefinitions {
 
     private final MainPage mainPage;
-    private ContactUsPage contactUsPage;
+    //private ContactUsPage contactUsPage;
 
 
     public MainPageDefinitions() {
