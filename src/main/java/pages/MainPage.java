@@ -6,6 +6,7 @@ public class MainPage extends BasePage {
     public static final String MAIN_SLIDER = "//div[@class='slider-items']";
     public static final String ABOUT_US_LINK_TOP_MENU = "//a[text()='About Us']";
     public static final String CONTACT_US_LINK_TOP_MENU = "//a[text()='Contact Us']";
+    public static final String INVENTORY = "//a[text()='Inventory']";
 
 
     public void navigateToMainPage(String url) {
@@ -30,6 +31,10 @@ public class MainPage extends BasePage {
         return new ContactUsPage();
     }
 
+    public InventoryPage clickInventoryButton() {
+        clickElementByXpath(INVENTORY);
+        return new InventoryPage();
+    }
 
 }
 

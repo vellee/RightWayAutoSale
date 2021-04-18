@@ -16,3 +16,9 @@ Feature: Right Way Auto Sale Main page tests
     When User clicks Contact Us
     Then Verify that contact us logo is displayed
     And Verify that contact us info is displayed
+
+  Scenario: Navigate to the main page and click Inventory option
+    When User clicks Inventory
+    Then Verify that inventory logo is displayed
+    And Verify that search car header is displayed
+    And Verify that refine search header is displayed

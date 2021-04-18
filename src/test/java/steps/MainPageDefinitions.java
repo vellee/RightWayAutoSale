@@ -4,8 +4,10 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.cucumber.java.en_scouse.An;
 import pages.AboutUsPage;
 import pages.ContactUsPage;
+import pages.InventoryPage;
 import pages.MainPage;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -16,6 +18,7 @@ public class MainPageDefinitions {
     private final MainPage mainPage;
     private ContactUsPage contactUsPage;
     private AboutUsPage aboutUsPage;
+    private InventoryPage inventoryPage;
 
     public MainPageDefinitions() {
         mainPage = new MainPage();
@@ -66,4 +69,25 @@ public class MainPageDefinitions {
     public void verifyContactInfoDisplayed() {
         assertTrue(contactUsPage.isGetInTouchInfoDisplayed());
     }
+
+    @When("User clicks Inventory")
+    public void userClicksInventory() {
+        inventoryPage = mainPage.clickInventoryButton();
+    }
+
+    @Then("Verify that inventory logo is displayed")
+    public void verifyInventoryLogoDisplayed() {
+        assertTrue(inventoryPage.isInventoryLogoDisplayed());
+    }
+
+    @And("Verify that search car header is displayed")
+    public void verifySearchCarHeaderDisplayed() {
+        assertTrue(inventoryPage.isSearchCarHeaderDisplayed());
+    }
+
+    @And("Verify that refine search header is displayed")
+    public void verifyRefineSearchHeaderDisplayed() {
+        assertTrue(inventoryPage.isRefineSearchHeaderDisplayed());
+    }
+
 }
