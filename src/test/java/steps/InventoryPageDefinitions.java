@@ -2,15 +2,16 @@ package steps;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en_scouse.An;
 import pages.InventoryPage;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class InventoryPageDefifnitions {
+public class InventoryPageDefinitions {
 
     private final InventoryPage inventoryPage;
 
-    public InventoryPageDefifnitions() {
+    public InventoryPageDefinitions() {
         inventoryPage = new InventoryPage();
 
     }
@@ -63,6 +64,31 @@ public class InventoryPageDefifnitions {
     @Then("verify that YEAR 2015 is visible")
     public void verifyFilterYear2015Visible() {
         assertTrue(inventoryPage.isFilterYear2015Displayed());
+    }
+
+    @Then("verify that Button MORE is visible")
+    public void verifyBTNMoreVisible() {
+        assertTrue(inventoryPage.areBTN_MoreDisplayed());
+    }
+
+    @Then("verify that Button LESS is visible")
+    public void verifyBTNLessVisible() {
+        assertTrue(inventoryPage.areBTN_LessDisplayed());
+    }
+
+    @Then("verify that Body Type Sedan is visible")
+    public void verifyBodyTypeSedanIsVisible() {
+        assertTrue(inventoryPage.isFilterBodySedanDisplayed());
+    }
+
+    @And("verify that Body Type Wagon is visible")
+    public void verifyBodyTypeWagonIsVisible() {
+        assertTrue(inventoryPage.isFilterBodyWagonDisplayed());
+    }
+
+    @And("verify that Body Type SUV is visible")
+    public void verifyBodyTypeSUVIsVisible() {
+        assertTrue(inventoryPage.isFilterBodySUVDisplayed());
     }
 
 }

@@ -20,3 +20,14 @@ Feature: Right Way Auto Sale Inventory page tests
 
   Scenario: navigate to Inventory by clicking element on Main page and verify FILTER YEAR elements
     Then verify that YEAR 2015 is visible
+
+  Scenario: navigate to Inventory by clicking element on Main page and verify Button More element
+    Then verify that Button MORE is visible
+
+  Scenario: navigate to Inventory by clicking element on Main page and verify Button Less element
+    Then verify that Button LESS is visible
+
+  Scenario: navigate to Inventory by clicking element on Main page and verify FILTER BODY TYPE elements
+    Then verify that Body Type Sedan is visible
+    And verify that Body Type Wagon is visible
+    And verify that Body Type SUV is visible
