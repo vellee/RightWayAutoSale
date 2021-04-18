@@ -30,4 +30,39 @@ public class InventoryPageDefifnitions {
         assertTrue(inventoryPage.isRefineSearchHeaderDisplayed());
     }
 
+    @Then("verify that Engine 4Cyl is visible")
+    public void verifyFilter4CylVisible() {
+        assertTrue(inventoryPage.isFilterEngine4Displayed());
+    }
+
+    @And("verify that Engine 6Cyl is visible")
+    public void verifyFilter6CylVisible() {
+        assertTrue(inventoryPage.isFilterEngine6Displayed());
+    }
+
+    @And("verify that Engine 8Cyl is visible")
+    public void verifyFilter8CylVisible() {
+        assertTrue(inventoryPage.isFilterEngine8Displayed());
+    }
+
+    @Then("verify that MAKE VW is visible")
+    public void verifyFilterMakeVWVisible() {
+        assertTrue(inventoryPage.isFilterVWDisplayed());
+    }
+
+    @And("verify that MAKE MITSUBISHI is visible")
+    public void verifyFilterMakeMitsubishiVisible() {
+        assertTrue(inventoryPage.isFilterMitsubishiDisplayed());
+    }
+
+    @And("verify that MAKE HYUNDAI is visible")
+    public void verifyFilterMakeHyundaiVisible() {
+        assertTrue(inventoryPage.isFilterHyundaiDisplayed());
+    }
+
+    @Then("verify that YEAR 2015 is visible")
+    public void verifyFilterYear2015Visible() {
+        assertTrue(inventoryPage.isFilterYear2015Displayed());
+    }
+
 }
