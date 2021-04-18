@@ -19,7 +19,7 @@ public class InventoryPage extends BasePage {
     public static final String BTN_LESS = "//a[@class='eziSeeMoreLess' and contains(text(),'Less')]";
 
     public static final String FILTER_BODY_TYPE_SEDAN = "//a[text()='Sedan' and @class='lnk']";
-    public static final String FILTER_BODY_TYPE_WAGON = "//a[text()='Sedan' and @class='lnk']";
+    public static final String FILTER_BODY_TYPE_WAGON = "//a[text()='Wagon' and @class='lnk']";
     public static final String FILTER_BODY_TYPE_SUV_CROSSOVER = "//a[text()='SUV-Crossover' and @class='lnk']";
 
     public static final String FILTER_VALUE_YEAR = "//span[@class='filter_value' and text()='Year']";
@@ -92,6 +92,13 @@ public class InventoryPage extends BasePage {
         clickElementByXpath(FILTER_YEAR_2015);
         return isElementDisplayed(FILTER_VALUE_YEAR);
     }
+
+    public boolean clickSedanFilter() {
+        clickElementByXpath(FILTER_BODY_TYPE_SEDAN);
+        return isElementDisplayed(FILTER_VALUE_BODY);
+    }
+
+
 
     public boolean isFilterValueYear2015Displayed() {
         return isElementDisplayed(FILTER_VALUE_YEAR);

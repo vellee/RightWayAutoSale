@@ -37,3 +37,8 @@ Feature: Right Way Auto Sale Inventory page tests
 
   Scenario: negative test navigate to Inventory by clicking element on Main page and check for FILTER YEAR 2015 element without clicking it
     Then  verify that FILTER YEAR 2015 is not applied
+
+  Scenario: navigate to Inventory by clicking element on Main page and click Filter Sedan
+    Then verify that FILTER Sedan applied
+#    And verify that FILTER Wagon is not displayed
+#    And verify that Filter SUV is not displayed

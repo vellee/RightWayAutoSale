@@ -100,4 +100,21 @@ public class InventoryPageDefinitions {
     public void verifyFilterYear2015NotDisplayed() {
         assertFalse(inventoryPage.isFilterValueYear2015Displayed());
     }
+
+    @Then("verify that FILTER Sedan applied")
+    public void verifyFilterSedanDisplayed() {
+        assertTrue(inventoryPage.clickSedanFilter());
+        assertFalse(inventoryPage.isFilterBodyWagonDisplayed());
+        assertFalse(inventoryPage.isFilterBodySUVDisplayed());
+    }
+
+//    @And("verify that FILTER Wagon is not displayed")
+//    public void verifyFilterWagonNotDisplayed() {
+//        assertFalse(inventoryPage.isFilterBodyWagonDisplayed());
+//    }
+//
+//    @And("verify that Filter SUV is not displayed")
+//    public void verifyFilterSUVNotDisplayed() {
+//        assertFalse(inventoryPage.isFilterBodySUVDisplayed());
+//    }
 }
