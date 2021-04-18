@@ -5,7 +5,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en_scouse.An;
 import pages.InventoryPage;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class InventoryPageDefinitions {
 
@@ -91,4 +91,13 @@ public class InventoryPageDefinitions {
         assertTrue(inventoryPage.isFilterBodySUVDisplayed());
     }
 
+    @Then("verify that FILTER YEAR 2015 applied")
+    public void verifyFilterYear2015Displayed() {
+        assertTrue(inventoryPage.clickYear2015());
+    }
+
+    @Then("verify that FILTER YEAR 2015 is not applied")
+    public void verifyFilterYear2015NotDisplayed() {
+        assertFalse(inventoryPage.isFilterValueYear2015Displayed());
+    }
 }

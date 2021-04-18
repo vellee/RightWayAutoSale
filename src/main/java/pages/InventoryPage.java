@@ -22,6 +22,11 @@ public class InventoryPage extends BasePage {
     public static final String FILTER_BODY_TYPE_WAGON = "//a[text()='Sedan' and @class='lnk']";
     public static final String FILTER_BODY_TYPE_SUV_CROSSOVER = "//a[text()='SUV-Crossover' and @class='lnk']";
 
+    public static final String FILTER_VALUE_YEAR = "//span[@class='filter_value' and text()='Year']";
+    public static final String FILTER_VALUE_BODY = "//span[@class='filter_value' and text()='Body Type']";
+    public static final String FILTER_VALUE_MAKE = "//span[@class='filter_value' and text()='Make']";
+    public static final String FILTER_VALUE_ENGINE = "//span[@class='filter_value' and text()='Engine']";
+
     public boolean isInventoryLogoDisplayed() {
         return isElementDisplayed(INVENTORY_LOGO);
     }
@@ -83,4 +88,12 @@ public class InventoryPage extends BasePage {
         return isElementDisplayed(FILTER_BODY_TYPE_SUV_CROSSOVER);
     }
 
+    public boolean clickYear2015() {
+        clickElementByXpath(FILTER_YEAR_2015);
+        return isElementDisplayed(FILTER_VALUE_YEAR);
+    }
+
+    public boolean isFilterValueYear2015Displayed() {
+        return isElementDisplayed(FILTER_VALUE_YEAR);
+    }
 }

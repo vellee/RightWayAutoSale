@@ -31,3 +31,9 @@ Feature: Right Way Auto Sale Inventory page tests
     Then verify that Body Type Sedan is visible
     And verify that Body Type Wagon is visible
     And verify that Body Type SUV is visible
+
+  Scenario: navigate to Inventory by clicking element on Main page and click FILTER YEAR 2015 element
+    Then verify that FILTER YEAR 2015 applied
+
+  Scenario: negative test navigate to Inventory by clicking element on Main page and check for FILTER YEAR 2015 element without clicking it
+    Then  verify that FILTER YEAR 2015 is not applied
