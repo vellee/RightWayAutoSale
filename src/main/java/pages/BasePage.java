@@ -14,11 +14,13 @@ public abstract class BasePage {
     protected WebDriver driver = WebDriverSetup.getWebDriver();
     protected WebDriverWait wait = new WebDriverWait(driver, 4);
 
+    // find and click single web element by xpath
     public void clickElementByXpath(String xpath) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
         driver.findElement(By.xpath(xpath)).click();
     }
 
+    // find and click all found elements by xpath
     public void clickElementsByXpath(String xpath) {
         List<WebElement> webElementList = driver.findElements(By.xpath(xpath));
         for (WebElement webElement : webElementList) {
@@ -26,10 +28,9 @@ public abstract class BasePage {
         }
     }
 
+    // check if element(s) found by xpath are displayed
     public boolean isElementDisplayed(String xpath) {
         List<WebElement> webElementList = driver.findElements(By.xpath(xpath));
         return webElementList.size() > 0;
     }
-
-
 }

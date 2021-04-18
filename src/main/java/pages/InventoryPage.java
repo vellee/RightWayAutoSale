@@ -98,8 +98,6 @@ public class InventoryPage extends BasePage {
         return isElementDisplayed(FILTER_VALUE_BODY);
     }
 
-
-
     public boolean isFilterValueYear2015Displayed() {
         return isElementDisplayed(FILTER_VALUE_YEAR);
     }

@@ -40,5 +40,3 @@ Feature: Right Way Auto Sale Inventory page tests
 
   Scenario: navigate to Inventory by clicking element on Main page and click Filter Sedan
     Then verify that FILTER Sedan applied
-#    And verify that FILTER Wagon is not displayed
-#    And verify that Filter SUV is not displayed
