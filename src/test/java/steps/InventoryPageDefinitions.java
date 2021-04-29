@@ -108,13 +108,14 @@ public class InventoryPageDefinitions {
         assertFalse(inventoryPage.isFilterBodySUVDisplayed());
     }
 
-//    @And("verify that FILTER Wagon is not displayed")
-//    public void verifyFilterWagonNotDisplayed() {
-//        assertFalse(inventoryPage.isFilterBodyWagonDisplayed());
-//    }
-//
-//    @And("verify that Filter SUV is not displayed")
-//    public void verifyFilterSUVNotDisplayed() {
-//        assertFalse(inventoryPage.isFilterBodySUVDisplayed());
-//    }
+    @Then("verify that sorting applied")
+    public void verifySortingMakeApplied() {
+        assertTrue(inventoryPage.displayedListOfInventory());
+    }
+
+    @Then("verify specific sort type equals {string}")
+    public void verifySpecificSortType(String arg0) {
+        assertTrue(inventoryPage.displayedListOfInventoryParam(arg0));
+    }
+
 }

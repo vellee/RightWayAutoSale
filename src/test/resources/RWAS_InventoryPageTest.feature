@@ -40,3 +40,15 @@ Feature: Right Way Auto Sale Inventory page tests
 
   Scenario: navigate to Inventory by clicking element on Main page and click Filter Sedan
     Then verify that FILTER Sedan applied
+
+  Scenario: navigate to Inventory by clicking element on Main page and click MAKE from sort menu
+    Then verify that sorting applied
+
+  Scenario Outline: navigate to Inventory by clicking element on Main page and click different sort types
+    Then verify specific sort type equals <name>
+    Examples:
+      | name      |
+      | "YEAR"    |
+      | "MAKE"    |
+      | "PRICE"   |
+      | "MILEAGE" |

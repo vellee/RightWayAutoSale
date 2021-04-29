@@ -1,5 +1,9 @@
 package pages;
 
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
+
 public class InventoryPage extends BasePage {
     public static final String INVENTORY_LOGO = "//h1[contains(text(),'View Inventory')]";
     public static final String SEARCH_CAR_HEADER = "//h2[contains(text(),'Search Car')]";
@@ -26,6 +30,12 @@ public class InventoryPage extends BasePage {
     public static final String FILTER_VALUE_BODY = "//span[@class='filter_value' and text()='Body Type']";
     public static final String FILTER_VALUE_MAKE = "//span[@class='filter_value' and text()='Make']";
     public static final String FILTER_VALUE_ENGINE = "//span[@class='filter_value' and text()='Engine']";
+
+    public static final String LIST_OF_CARS = "//div[@class='vehicle-listing']";
+    public static final String SORT_MAKE = "//a[@data-sort='make_id']";
+    public static final String SORT_YEAR = "//a[@data-sort='year_id']";
+    public static final String SORT_PRICE = "//a[@data-sort='price']";
+    public static final String SORT_MILEAGE = "//a[@data-sort='mileage']";
 
     public boolean isInventoryLogoDisplayed() {
         return isElementDisplayed(INVENTORY_LOGO);
@@ -101,4 +111,51 @@ public class InventoryPage extends BasePage {
     public boolean isFilterValueYear2015Displayed() {
         return isElementDisplayed(FILTER_VALUE_YEAR);
     }
+
+    public boolean displayedListOfInventory() {
+        List<WebElement> initialList = listOfElementsDisplayed(LIST_OF_CARS);
+        clickElementByXpath(SORT_MAKE);
+        List<WebElement> sortedList = listOfElementsDisplayed((LIST_OF_CARS));
+        if (initialList == sortedList) {
+            return false;
+        } else return true;
+
+    }
+
+
+    public boolean displayedListOfInventoryParam(String type) {
+        List<WebElement> initialList = listOfElementsDisplayed(LIST_OF_CARS);
+        boolean result;
+        switch (type) {
+            case "YEAR":
+                clickElementByXpath(SORT_YEAR);
+                result = compareTwoList(initialList);
+                break;
+            case ("MAKE"):
+                clickElementByXpath(SORT_MAKE);
+                result = compareTwoList(initialList);
+                break;
+            case ("PRICE"):
+                clickElementByXpath(SORT_PRICE);
+                result = compareTwoList(initialList);
+                break;
+            case ("MILEAGE"):
+                clickElementByXpath(SORT_MILEAGE);
+                result = compareTwoList(initialList);
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + type);
+        }
+        return result;
+
+    }
+
+    public boolean compareTwoList(List initialList) {
+        List<WebElement> sortedList = listOfElementsDisplayed(LIST_OF_CARS);
+        if (initialList != sortedList) {
+            return true;
+        } else return false;
+    }
+
+
 }

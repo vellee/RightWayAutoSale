@@ -33,4 +33,9 @@ public abstract class BasePage {
         List<WebElement> webElementList = driver.findElements(By.xpath(xpath));
         return webElementList.size() > 0;
     }
+
+    public List listOfElementsDisplayed(String xpath){
+        //List<WebElement> webElementList = driver.findElements(By.xpath(xpath));
+        return driver.findElements(By.xpath(xpath));
+    }
 }
