@@ -2,6 +2,7 @@ package steps;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import io.cucumber.java.en_scouse.An;
 import pages.InventoryPage;
 
@@ -76,20 +77,20 @@ public class InventoryPageDefinitions {
         assertTrue(inventoryPage.areBTN_LessDisplayed());
     }
 
-    @Then("verify that Body Type Sedan is visible")
-    public void verifyBodyTypeSedanIsVisible() {
-        assertTrue(inventoryPage.isFilterBodySedanDisplayed());
-    }
-
-    @And("verify that Body Type Wagon is visible")
-    public void verifyBodyTypeWagonIsVisible() {
-        assertTrue(inventoryPage.isFilterBodyWagonDisplayed());
-    }
-
-    @And("verify that Body Type SUV is visible")
-    public void verifyBodyTypeSUVIsVisible() {
-        assertTrue(inventoryPage.isFilterBodySUVDisplayed());
-    }
+//    @Then("verify that Body Type Sedan is visible")
+//    public void verifyBodyTypeSedanIsVisible() {
+//        assertTrue(inventoryPage.isFilterBodySedanDisplayed());
+//    }
+//
+//    @And("verify that Body Type Wagon is visible")
+//    public void verifyBodyTypeWagonIsVisible() {
+//        assertTrue(inventoryPage.isFilterBodyWagonDisplayed());
+//    }
+//
+//    @And("verify that Body Type SUV is visible")
+//    public void verifyBodyTypeSUVIsVisible() {
+//        assertTrue(inventoryPage.isFilterBodySUVDisplayed());
+//    }
 
     @Then("verify that FILTER YEAR 2015 applied")
     public void verifyFilterYear2015Displayed() {
@@ -108,14 +109,43 @@ public class InventoryPageDefinitions {
         assertFalse(inventoryPage.isFilterBodySUVDisplayed());
     }
 
-    @Then("verify that sorting applied")
-    public void verifySortingMakeApplied() {
-        assertTrue(inventoryPage.displayedListOfInventory());
-    }
+//    @Then("verify that sorting applied")
+//    public void verifySortingMakeApplied() {
+//        assertTrue(inventoryPage.displayedListOfInventory());
+//    }
 
     @Then("verify specific sort type equals {string}")
     public void verifySpecificSortType(String arg0) {
         assertTrue(inventoryPage.displayedListOfInventoryParam(arg0));
     }
+
+    @Then("verify that VW Jetta is present")
+    public void verifyVWJettaIsPresent() {
+        assertTrue(inventoryPage.isVWJettaDisplayed());
+    }
+
+    @And("verify that VW Jetta has View Details Button")
+    public void verifyVWJettaViewDetailsBTN() {
+        assertTrue(inventoryPage.isVWJettaViewDetailsBTNDisplayed());
+    }
+
+    @And("verify that the button is clickable")
+    public void verifyVWJettaDetailsBTNClickable() {
+        inventoryPage.clickJettaDetails();
+    }
+
+    @When("verify that Jetta Details page is loaded")
+    public void verifyVWJettaDetailsPageLoaded() {
+
+        assertTrue(inventoryPage.isJettaLogoVisible());
+        assertTrue(inventoryPage.isJettaOverviewVisible());
+        assertTrue(inventoryPage.isBackToInventoryLinkVisible());
+    }
+
+    @Then("verify that Filter {string} is visible")
+    public void verifyThatFilterBodyTypeIsVisible(String type) {
+        assertTrue(inventoryPage.isFilterBodyTypeDisplayed(type));
+    }
+
 
 }

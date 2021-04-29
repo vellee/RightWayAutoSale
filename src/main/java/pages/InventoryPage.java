@@ -37,6 +37,13 @@ public class InventoryPage extends BasePage {
     public static final String SORT_PRICE = "//a[@data-sort='price']";
     public static final String SORT_MILEAGE = "//a[@data-sort='mileage']";
 
+    public static final String VW_JETTA_2016 = "//div[@class='vehicle-listing' and @data-key='396']";
+    public static final String VW_JETTA_2016_VIEW_BTN = "//a[@href='/inventory/2016-volkswagen-jetta/396' and @class='view-detail-btn ']";
+
+    public static final String BACK_TO_INVENTORY_LINK = "//span[@class='backResLt' and text()='Back to Inventory']";
+    public static final String JETTA_LOGO = "//h1[contains(text(),'2016 Volkswagen Jetta Sport | SAFETY CERTIFIED')]";
+    public static final String JETTA_OVERVIEW = "//div[@class='col-md-12 vehicle-overview']";
+
     public boolean isInventoryLogoDisplayed() {
         return isElementDisplayed(INVENTORY_LOGO);
     }
@@ -98,6 +105,25 @@ public class InventoryPage extends BasePage {
         return isElementDisplayed(FILTER_BODY_TYPE_SUV_CROSSOVER);
     }
 
+    public boolean isFilterBodyTypeDisplayed(String bodyType) {
+        boolean result;
+        switch (bodyType) {
+            case ("Sedan"):
+                result = isElementDisplayed(FILTER_BODY_TYPE_SEDAN);
+                break;
+            case ("Wagon"):
+                result = isElementDisplayed(FILTER_BODY_TYPE_WAGON);
+                break;
+            case ("SUV-Crossover"):
+                result = isElementDisplayed(FILTER_BODY_TYPE_SUV_CROSSOVER);
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + bodyType);
+        }
+        return result;
+
+    }
+
     public boolean clickYear2015() {
         clickElementByXpath(FILTER_YEAR_2015);
         return isElementDisplayed(FILTER_VALUE_YEAR);
@@ -108,19 +134,20 @@ public class InventoryPage extends BasePage {
         return isElementDisplayed(FILTER_VALUE_BODY);
     }
 
+
     public boolean isFilterValueYear2015Displayed() {
         return isElementDisplayed(FILTER_VALUE_YEAR);
     }
 
-    public boolean displayedListOfInventory() {
-        List<WebElement> initialList = listOfElementsDisplayed(LIST_OF_CARS);
-        clickElementByXpath(SORT_MAKE);
-        List<WebElement> sortedList = listOfElementsDisplayed((LIST_OF_CARS));
-        if (initialList == sortedList) {
-            return false;
-        } else return true;
-
-    }
+//    public boolean displayedListOfInventory() {
+//        List<WebElement> initialList = listOfElementsDisplayed(LIST_OF_CARS);
+//        clickElementByXpath(SORT_MAKE);
+//        List<WebElement> sortedList = listOfElementsDisplayed((LIST_OF_CARS));
+//        if (initialList == sortedList) {
+//            return false;
+//        } else return true;
+//
+//    }
 
 
     public boolean displayedListOfInventoryParam(String type) {
@@ -152,10 +179,31 @@ public class InventoryPage extends BasePage {
 
     public boolean compareTwoList(List initialList) {
         List<WebElement> sortedList = listOfElementsDisplayed(LIST_OF_CARS);
-        if (initialList != sortedList) {
-            return true;
-        } else return false;
+        return initialList != sortedList;
     }
 
+    public boolean isVWJettaDisplayed() {
+        return isElementDisplayed(VW_JETTA_2016);
+    }
+
+    public boolean isVWJettaViewDetailsBTNDisplayed() {
+        return isElementDisplayed(VW_JETTA_2016_VIEW_BTN);
+    }
+
+    public void clickJettaDetails() {
+        clickElementByXpath(VW_JETTA_2016_VIEW_BTN);
+    }
+
+    public boolean isJettaLogoVisible() {
+        return isElementDisplayed(JETTA_LOGO);
+    }
+
+    public boolean isJettaOverviewVisible() {
+        return isElementDisplayed(JETTA_OVERVIEW);
+    }
+
+    public boolean isBackToInventoryLinkVisible() {
+        return isElementDisplayed(BACK_TO_INVENTORY_LINK);
+    }
 
 }

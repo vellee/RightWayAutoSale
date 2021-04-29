@@ -27,10 +27,10 @@ Feature: Right Way Auto Sale Inventory page tests
   Scenario: navigate to Inventory by clicking element on Main page and verify Button Less element
     Then verify that Button LESS is visible
 
-  Scenario: navigate to Inventory by clicking element on Main page and verify FILTER BODY TYPE elements
-    Then verify that Body Type Sedan is visible
-    And verify that Body Type Wagon is visible
-    And verify that Body Type SUV is visible
+#  Scenario: navigate to Inventory by clicking element on Main page and verify FILTER BODY TYPE elements
+#    Then verify that Body Type Sedan is visible
+#    And verify that Body Type Wagon is visible
+#    And verify that Body Type SUV is visible
 
   Scenario: navigate to Inventory by clicking element on Main page and click FILTER YEAR 2015 element
     Then verify that FILTER YEAR 2015 applied
@@ -41,8 +41,8 @@ Feature: Right Way Auto Sale Inventory page tests
   Scenario: navigate to Inventory by clicking element on Main page and click Filter Sedan
     Then verify that FILTER Sedan applied
 
-  Scenario: navigate to Inventory by clicking element on Main page and click MAKE from sort menu
-    Then verify that sorting applied
+#  Scenario: navigate to Inventory by clicking element on Main page and click MAKE from sort menu
+#    Then verify that sorting applied
 
   Scenario Outline: navigate to Inventory by clicking element on Main page and click different sort types
     Then verify specific sort type equals <name>
@@ -52,3 +52,17 @@ Feature: Right Way Auto Sale Inventory page tests
       | "MAKE"    |
       | "PRICE"   |
       | "MILEAGE" |
+
+  Scenario: navigate to Inventory by clicking element on Main page
+    Then verify that VW Jetta is present
+    And verify that VW Jetta has View Details Button
+    And verify that the button is clickable
+    When verify that Jetta Details page is loaded
+
+  Scenario Outline: navigate to Inventory by clicking element on Main page and verify FILTER BODY TYPE elements
+    Then verify that Filter <BodyType> is visible
+    Examples:
+      | BodyType       |
+      | "Sedan"        |
+      | "Wagon"        |
+      | "SUV-Crossover |
