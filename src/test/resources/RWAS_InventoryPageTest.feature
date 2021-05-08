@@ -25,6 +25,10 @@ Feature: Right Way Auto Sale Inventory page tests
       | "VW"         |
       | "MITSUBISHI" |
       | "HYUNDAI"    |
+      | "KIA"        |
+      | "CHEVROLET"  |
+      | "DODGE"      |
+      | "FORD"       |
 
 
   Scenario: navigate to Inventory by clicking element on Main page and verify FILTER BY MAKE elements
@@ -76,7 +80,10 @@ Feature: Right Way Auto Sale Inventory page tests
   Scenario Outline: navigate to Inventory by clicking element on Main page and verify FILTER BODY TYPE elements
     Then verify that Filter <BodyType> is visible
     Examples:
-      | BodyType       |
-      | "Sedan"        |
-      | "Wagon"        |
-      | "SUV-Crossover |
+      | BodyType        |
+      | "Sedan"         |
+      | "Wagon"         |
+      | "SUV-Crossover" |
+      | "Coupe-2-Door"  |
+      | "Minivan-Van"   |
+      | "Hatchback"     |

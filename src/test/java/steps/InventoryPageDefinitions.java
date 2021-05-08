@@ -149,12 +149,14 @@ public class InventoryPageDefinitions {
 
     @Then("verify that Filter {string} is visible")
     public void verifyThatFilterBodyTypeIsVisible(String type) {
+        inventoryPage.clickBtnMore();
         assertTrue(inventoryPage.isFilterBodyTypeDisplayed(type));
     }
 
 
     @Then("verify that {string} is visible")
     public void verifyFilterMakeIsVisible(String arg0) {
+        inventoryPage.clickBtnMore();
         assertTrue(inventoryPage.verifyFilterMakeVisible(arg0));
     }
 }

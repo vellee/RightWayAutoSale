@@ -18,6 +18,10 @@ public class InventoryPage extends BasePage {
     public static final String FILTER_MAKE_VW = "//a[contains(text(),'Volkswagen') and @class='lnk']";
     public static final String FILTER_MAKE_MITSUBISHI = "//a[contains(text(),'Mitsubishi') and @class='lnk']";
     public static final String FILTER_MAKE_HYUNDAI = "//a[contains(text(),'Hyundai') and @class='lnk']";
+    public static final String FILTER_MAKE_KIA = "//a[contains(text(),'Kia') and @class='lnk']";
+    public static final String FILTER_MAKE_CHEVROLET = "//a[contains(text(),'Chevrolet') and @class='lnk']";
+    public static final String FILTER_MAKE_FORD = "//a[contains(text(),'Ford') and @class='lnk']";
+    public static final String FILTER_MAKE_DODGE = "//a[contains(text(),'Dodge') and @class='lnk']";
 
     public static final String BTN_MORE = "//a[@class='eziSeeMoreLess' and contains(text(),'More')]";
     public static final String BTN_LESS = "//a[@class='eziSeeMoreLess' and contains(text(),'Less')]";
@@ -25,6 +29,9 @@ public class InventoryPage extends BasePage {
     public static final String FILTER_BODY_TYPE_SEDAN = "//a[text()='Sedan' and @class='lnk']";
     public static final String FILTER_BODY_TYPE_WAGON = "//a[text()='Wagon' and @class='lnk']";
     public static final String FILTER_BODY_TYPE_SUV_CROSSOVER = "//a[text()='SUV-Crossover' and @class='lnk']";
+    public static final String FILTER_BODY_TYPE_COUPE = "//a[text()='Coupe-2-Door' and @class='lnk']";
+    public static final String FILTER_BODY_TYPE_MINIVAN = "//a[text()='Minivan-Van' and @class='lnk']";
+    public static final String FILTER_BODY_TYPE_HATCHBACK = "//a[text()='Hatchback' and @class='lnk']";
 
     public static final String FILTER_VALUE_YEAR = "//span[@class='filter_value' and text()='Year']";
     public static final String FILTER_VALUE_BODY = "//span[@class='filter_value' and text()='Body Type']";
@@ -56,17 +63,17 @@ public class InventoryPage extends BasePage {
         return isElementDisplayed(REFINE_SEARCH_HEADER);
     }
 
-    public boolean isFilterVWDisplayed() {
-        return isElementDisplayed(FILTER_MAKE_VW);
-    }
-
-    public boolean isFilterMitsubishiDisplayed() {
-        return isElementDisplayed(FILTER_MAKE_MITSUBISHI);
-    }
-
-    public boolean isFilterHyundaiDisplayed() {
-        return isElementDisplayed(FILTER_MAKE_HYUNDAI);
-    }
+//    public boolean isFilterVWDisplayed() {
+//        return isElementDisplayed(FILTER_MAKE_VW);
+//    }
+//
+//    public boolean isFilterMitsubishiDisplayed() {
+//        return isElementDisplayed(FILTER_MAKE_MITSUBISHI);
+//    }
+//
+//    public boolean isFilterHyundaiDisplayed() {
+//        return isElementDisplayed(FILTER_MAKE_HYUNDAI);
+//    }
 
     public boolean areBTN_MoreDisplayed() {
         return isElementDisplayed(BTN_MORE);
@@ -75,6 +82,10 @@ public class InventoryPage extends BasePage {
     public boolean areBTN_LessDisplayed() {
         clickElementsByXpath(BTN_MORE);
         return isElementDisplayed(BTN_LESS);
+    }
+
+    public void clickBtnMore() {
+        clickElementByXpath(BTN_MORE);
     }
 
     public boolean isFilterYear2015Displayed() {
@@ -97,13 +108,13 @@ public class InventoryPage extends BasePage {
 //        return isElementDisplayed(FILTER_BODY_TYPE_SEDAN);
 //    }
 
-    public boolean isFilterBodyWagonDisplayed() {
-        return isElementDisplayed(FILTER_BODY_TYPE_WAGON);
-    }
-
-    public boolean isFilterBodySUVDisplayed() {
-        return isElementDisplayed(FILTER_BODY_TYPE_SUV_CROSSOVER);
-    }
+//    public boolean isFilterBodyWagonDisplayed() {
+//        return isElementDisplayed(FILTER_BODY_TYPE_WAGON);
+//    }
+//
+//    public boolean isFilterBodySUVDisplayed() {
+//        return isElementDisplayed(FILTER_BODY_TYPE_SUV_CROSSOVER);
+//    }
 
     public boolean verifyEngineTypeVisible(String numOfCylinders) {
         boolean result;
@@ -129,6 +140,10 @@ public class InventoryPage extends BasePage {
             case ("VW") -> isElementDisplayed(FILTER_MAKE_VW);
             case ("MITSUBISHI") -> isElementDisplayed(FILTER_MAKE_MITSUBISHI);
             case ("HYUNDAI") -> isElementDisplayed(FILTER_MAKE_HYUNDAI);
+            case ("KIA") -> isElementDisplayed(FILTER_MAKE_KIA);
+            case ("FORD") -> isElementDisplayed(FILTER_MAKE_FORD);
+            case ("CHEVROLET") -> isElementDisplayed(FILTER_MAKE_CHEVROLET);
+            case ("DODGE") -> isElementDisplayed(FILTER_MAKE_DODGE);
             default -> throw new IllegalStateException("Unexpected value: " + brand);
         };
         return result;
@@ -141,6 +156,9 @@ public class InventoryPage extends BasePage {
             case ("Sedan") -> isElementDisplayed(FILTER_BODY_TYPE_SEDAN);
             case ("Wagon") -> isElementDisplayed(FILTER_BODY_TYPE_WAGON);
             case ("SUV-Crossover") -> isElementDisplayed(FILTER_BODY_TYPE_SUV_CROSSOVER);
+            case ("Coupe-2-Door") -> isElementDisplayed(FILTER_BODY_TYPE_COUPE);
+            case ("Minivan-Van") -> isElementDisplayed(FILTER_BODY_TYPE_MINIVAN);
+            case ("Hatchback") -> isElementDisplayed(FILTER_BODY_TYPE_HATCHBACK);
             default -> throw new IllegalStateException("Unexpected value: " + bodyType);
         };
         return result;
