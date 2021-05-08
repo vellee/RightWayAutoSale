@@ -8,10 +8,24 @@ Feature: Right Way Auto Sale Inventory page tests
     And verify that Search Car Header is loaded
     And verify that Refine Search Header is loaded
 
-  Scenario: navigate to Inventory by clicking element on Main page and verify FILTER BY ENGINE elements
-    Then verify that Engine 4Cyl is visible
-    And verify that Engine 6Cyl is visible
-    And verify that Engine 8Cyl is visible
+  Scenario Outline: navigate to Inventory by clicking element on Main page and verify FILTER BY ENGINE elements
+    Then verify that Engine has <engine_cyl> is visible
+#    And verify that Engine 6Cyl is visible
+#    And verify that Engine 8Cyl is visible
+    Examples:
+      | engine_cyl |
+      | "4 cyl"    |
+      | "6 cyl"    |
+#      | "8 cyl"    |
+
+  Scenario Outline: navigate to Inventory by clicking element on Main page and verify FILTER BY MAKE elements
+    Then verify that <make> is visible
+    Examples:
+      | make         |
+      | "VW"         |
+      | "MITSUBISHI" |
+      | "HYUNDAI"    |
+
 
   Scenario: navigate to Inventory by clicking element on Main page and verify FILTER BY MAKE elements
     Then verify that MAKE VW is visible

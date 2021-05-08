@@ -81,21 +81,21 @@ public class InventoryPage extends BasePage {
         return isElementDisplayed(FILTER_YEAR_2015);
     }
 
-    public boolean isFilterEngine4Displayed() {
-        return isElementDisplayed(FILTER_ENGINE_4CYL);
-    }
-
-    public boolean isFilterEngine6Displayed() {
-        return isElementDisplayed(FILTER_ENGINE_6CYL);
-    }
-
-    public boolean isFilterEngine8Displayed() {
-        return isElementDisplayed(FILTER_ENGINE_8CYL);
-    }
-
-    public boolean isFilterBodySedanDisplayed() {
-        return isElementDisplayed(FILTER_BODY_TYPE_SEDAN);
-    }
+//    public boolean isFilterEngine4Displayed() {
+//        return isElementDisplayed(FILTER_ENGINE_4CYL);
+//    }
+//
+//    public boolean isFilterEngine6Displayed() {
+//        return isElementDisplayed(FILTER_ENGINE_6CYL);
+//    }
+//
+//    public boolean isFilterEngine8Displayed() {
+//        return isElementDisplayed(FILTER_ENGINE_8CYL);
+//    }
+//
+//    public boolean isFilterBodySedanDisplayed() {
+//        return isElementDisplayed(FILTER_BODY_TYPE_SEDAN);
+//    }
 
     public boolean isFilterBodyWagonDisplayed() {
         return isElementDisplayed(FILTER_BODY_TYPE_WAGON);
@@ -105,21 +105,44 @@ public class InventoryPage extends BasePage {
         return isElementDisplayed(FILTER_BODY_TYPE_SUV_CROSSOVER);
     }
 
-    public boolean isFilterBodyTypeDisplayed(String bodyType) {
+    public boolean verifyEngineTypeVisible(String numOfCylinders) {
         boolean result;
-        switch (bodyType) {
-            case ("Sedan"):
-                result = isElementDisplayed(FILTER_BODY_TYPE_SEDAN);
+        switch (numOfCylinders) {
+            case ("4 cyl"):
+                result = isElementDisplayed(FILTER_ENGINE_4CYL);
                 break;
-            case ("Wagon"):
-                result = isElementDisplayed(FILTER_BODY_TYPE_WAGON);
+            case ("6 cyl"):
+                result = isElementDisplayed(FILTER_ENGINE_6CYL);
                 break;
-            case ("SUV-Crossover"):
-                result = isElementDisplayed(FILTER_BODY_TYPE_SUV_CROSSOVER);
+            case ("8 cyl"):
+                result = isElementDisplayed(FILTER_ENGINE_8CYL);
                 break;
             default:
-                throw new IllegalStateException("Unexpected value: " + bodyType);
+                throw new IllegalStateException("Unexpected value: " + numOfCylinders);
         }
+        return result;
+
+    }
+
+    public boolean verifyFilterMakeVisible(String brand) {
+        boolean result = switch (brand) {
+            case ("VW") -> isElementDisplayed(FILTER_MAKE_VW);
+            case ("MITSUBISHI") -> isElementDisplayed(FILTER_MAKE_MITSUBISHI);
+            case ("HYUNDAI") -> isElementDisplayed(FILTER_MAKE_HYUNDAI);
+            default -> throw new IllegalStateException("Unexpected value: " + brand);
+        };
+        return result;
+
+    }
+
+
+    public boolean isFilterBodyTypeDisplayed(String bodyType) {
+        boolean result = switch (bodyType) {
+            case ("Sedan") -> isElementDisplayed(FILTER_BODY_TYPE_SEDAN);
+            case ("Wagon") -> isElementDisplayed(FILTER_BODY_TYPE_WAGON);
+            case ("SUV-Crossover") -> isElementDisplayed(FILTER_BODY_TYPE_SUV_CROSSOVER);
+            default -> throw new IllegalStateException("Unexpected value: " + bodyType);
+        };
         return result;
 
     }

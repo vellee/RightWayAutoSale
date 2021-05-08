@@ -32,20 +32,25 @@ public class InventoryPageDefinitions {
         assertTrue(inventoryPage.isRefineSearchHeaderDisplayed());
     }
 
-    @Then("verify that Engine 4Cyl is visible")
-    public void verifyFilter4CylVisible() {
-        assertTrue(inventoryPage.isFilterEngine4Displayed());
-    }
+    @Then("verify that Engine has {string} is visible")
+    public void verifyEngineCylinderVisible(String arg0) {
+        assertTrue(inventoryPage.verifyEngineTypeVisible(arg0));
 
-    @And("verify that Engine 6Cyl is visible")
-    public void verifyFilter6CylVisible() {
-        assertTrue(inventoryPage.isFilterEngine6Displayed());
     }
-
-    @And("verify that Engine 8Cyl is visible")
-    public void verifyFilter8CylVisible() {
-        assertTrue(inventoryPage.isFilterEngine8Displayed());
-    }
+//    @Then("verify that Engine 4Cyl is visible")
+//    public void verifyFilter4CylVisible() {
+//        assertTrue(inventoryPage.isFilterEngine4Displayed());
+//    }
+//
+//    @And("verify that Engine 6Cyl is visible")
+//    public void verifyFilter6CylVisible() {
+//        assertTrue(inventoryPage.isFilterEngine6Displayed());
+//    }
+//
+//    @And("verify that Engine 8Cyl is visible")
+//    public void verifyFilter8CylVisible() {
+//        assertTrue(inventoryPage.isFilterEngine8Displayed());
+//    }
 
     @Then("verify that MAKE VW is visible")
     public void verifyFilterMakeVWVisible() {
@@ -148,4 +153,8 @@ public class InventoryPageDefinitions {
     }
 
 
+    @Then("verify that {string} is visible")
+    public void verifyFilterMakeIsVisible(String arg0) {
+        assertTrue(inventoryPage.verifyFilterMakeVisible(arg0));
+    }
 }
